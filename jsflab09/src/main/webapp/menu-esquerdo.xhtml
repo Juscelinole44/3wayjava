@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+	<h:outputStylesheet library="css" name="estilo.css" />
+	<h3>Menu esquerdo fdfd</h3>
+	<h:form>
+		<hr />
+		<h:panelGrid cellpadding="2">
+Navegação Estatica Implicita
+  <h:commandButton value="Ir Para Index" action="index" />
+			<h:commandButton value="Ir Para Página 1" action="pagina1" />
+		</h:panelGrid>
+		<hr />
+		<h:panelGrid cellpadding="2">
+Navegação Dinamica Implicita
+<h:commandButton value="Ir Para Index"
+				action="#{navegacaoBean.navegacaoDinamicaImplicitaIndex()}" />
+			<h:commandButton value="Ir Para Página 1"
+				action="#{navegacaoBean.navegacaoDinamicaImplicitaPagina1()}" />
+		</h:panelGrid>
+		<hr />
+		<h:panelGrid cellpadding="2">
+Navegação Estatica Explicita
+<h:commandButton value="Ir Para Index" action="NavegacaoExplicitaIndex" />
+			<h:commandButton value="Ir Para Página 1"
+				action="NavegacaoExplicitaPagina1" />
+		</h:panelGrid>
+		<hr />
+		<h:panelGrid cellpadding="2">
+Navegação Dinamica Explicita
+<h:commandButton value="Ir Para Index"
+				action="#{navegacaoBean.navegacaoDinamicaExplicitaIndex()}" />
+			<h:commandButton value="Ir Para Página 1"
+				action="#{navegacaoBean.navegacaoDinamicaExplicitaPagina1()}" />
+		</h:panelGrid>
+		<hr />
+	</h:form>
+
+</h:body>
+</html>

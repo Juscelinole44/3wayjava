@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+	<h3>Validadores Padrão</h3>
+	<h:form id="formPadrao">
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Atributo Obrigatório " />
+			<h:inputText id="attrObrigatorio"
+				value="#{validadoresBean.atributoObrigatorio}" required="true" />
+			<h:message for="attrObrigatorio" style="color:red" />
+			<h:outputLabel value="Informe uma senha: " />
+			<h:inputSecret id="senha"
+				value="#{validadores-Bean.atributoObrigatorio}" required="true">
+				<f:validateLength minimum="5" />
+			</h:inputSecret>
+			<h:message for="senha" style="color:red" />
+		</h:panelGrid>
+		<h:commandButton value="Utilizar Validador Padrão" />
+	</h:form>
+	<hr />
+	<h3>Validadores Personalizados</h3>
+	<h:form id="formCustom">
+		<h:panelGrid columns="3">
+			<h:outputLabel value="Entre com email válido: " />
+			<h:inputText id="email" value="#{validadores-Bean.email}"
+				required="true">
+				<f:validator validatorId="emailValidator" />
+			</h:inputText>
+			<h:message for="email" style="color:red" />
+		</h:panelGrid>
+		<h:commandButton value="Utilizar Validador Customizado" />
+	</h:form>
+	<hr />
+	<h3>Validadores + Conversores</h3>
+	<h:form id="formValidConvert">
+		<h:panelGrid columns="3" cellpadding="10">
+			<h:outputLabel value="Informe a temperatura em Celsius" />
+			<h:inputText id="celsius"
+				value="#{conversoresBean.celsiusToFahrenheit}">
+				<f:validateLongRange maximum="100" minimum="-50" />
+				<f:converter converterId="celsiusToFahrenheitConverter" />
+			</h:inputText>
+			<h:message for="celsius" style="color:red" />
+		</h:panelGrid>
+		<h:commandButton value="Calcular">
+			<f:ajax execute="formValidConvert" render="form-ValidConvert" />
+		</h:commandButton>
+	</h:form>
+</h:body>
+</html>

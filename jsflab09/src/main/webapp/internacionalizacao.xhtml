@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>#{msg['msg.title']}</title>
+</h:head>
+<h:body>
+	<h3>#{msg['msg.title']}</h3>
+	<h:form>
+		<h:panelGrid columns="2" cellpadding="5">
+			<h:commandLink action="#{internacionalizacaoBean.englishLocale()}">
+				<h:graphicImage value="/resources/imagens/us.png" />
+			</h:commandLink>
+			<h:commandLink action="#{internacionalizacaoBean.portugueseLocale()}">
+				<h:graphicImage value="/resources/imagens/brasil.png" />
+			</h:commandLink>
+		</h:panelGrid>
+	</h:form>
+	<h2>#{msg['msg.boasVindas']}</h2>
+</h:body>
+</html>
